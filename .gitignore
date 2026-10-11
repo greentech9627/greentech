@@ -1,0 +1,7 @@
+# Antigravity Scratch Files
+scratch/
+.system_generated/
+*.log
+*.tmp
+.DS_Store
+Thumbs.db
