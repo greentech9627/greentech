@@ -4579,3 +4579,246 @@ body.mobile-menu-active {
     padding: 6px 2px !important;
   }
 }
+
+/* ==========================================================================
+   Green Tech Power brand asset + mobile landing-page polish
+   ========================================================================== */
+.hero-grid > *,
+.hero-content,
+.hero-cta-group,
+.hero-contact-badge,
+.hero-contact-details,
+.hero-stats-row,
+.hero-stat-card {
+  min-width: 0;
+}
+
+.site-logo img {
+  width: auto;
+  height: 72px;
+  max-width: 118px;
+  object-fit: contain;
+}
+
+.footer-widget-logo img,
+.footer-logo img {
+  width: auto;
+  height: 104px;
+  max-width: 166px;
+  object-fit: contain;
+  margin-bottom: 18px;
+}
+
+@media (max-width: 991px) {
+  .site-header,
+  .navbar {
+    height: 74px;
+  }
+
+  .site-logo img {
+    height: 60px;
+    max-width: 96px;
+  }
+
+  .nav-menu {
+    top: 74px;
+    height: calc(100dvh - 74px);
+  }
+}
+
+@media (max-width: 768px) {
+  .site-header,
+  .navbar {
+    height: 68px;
+  }
+
+  .nav-menu {
+    top: 68px;
+    height: calc(100dvh - 68px);
+  }
+
+  .site-logo img {
+    width: auto !important;
+    height: 56px !important;
+    max-width: 90px !important;
+  }
+
+  .hero-royal {
+    min-height: auto;
+    padding: 28px 0 40px;
+    background-image:
+      radial-gradient(circle at 92% 8%, rgba(74, 171, 61, 0.12) 0, transparent 38%),
+      linear-gradient(180deg, #ffffff 0%, #f7fbf7 100%);
+  }
+
+  .hero-royal .container {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .hero-grid {
+    width: 100%;
+    gap: 26px !important;
+    text-align: left;
+  }
+
+  .hero-content {
+    width: 100%;
+    max-width: 100%;
+    text-align: left;
+  }
+
+  .hero-tag {
+    width: fit-content;
+    max-width: 100%;
+    white-space: normal;
+    text-align: left;
+    font-size: 10.5px;
+    line-height: 1.35;
+    letter-spacing: 0.55px;
+    padding: 7px 11px;
+    margin-bottom: 18px;
+    border-radius: 10px;
+  }
+
+  .hero-tag i {
+    flex: 0 0 auto;
+    font-size: 13px;
+  }
+
+  .hero-title {
+    width: 100%;
+    max-width: 100%;
+    font-size: clamp(30px, 8.6vw, 36px) !important;
+    line-height: 1.12;
+    letter-spacing: -1px;
+    margin-bottom: 16px;
+    overflow-wrap: normal;
+  }
+
+  .hero-desc {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 0 24px;
+    font-size: 15px;
+    line-height: 1.58;
+    text-align: left;
+  }
+
+  .hero-cta-group {
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .hero-cta-group .btn-creative,
+  .hero-contact-badge {
+    width: 100%;
+    max-width: 100%;
+    min-height: 52px;
+  }
+
+  .hero-contact-badge {
+    justify-content: flex-start;
+    gap: 12px;
+    padding: 9px 14px;
+  }
+
+  .hero-contact-icon {
+    width: 38px;
+    height: 38px;
+    flex: 0 0 38px;
+    font-size: 15px;
+  }
+
+  .hero-contact-details span {
+    font-size: 10px;
+    letter-spacing: 0.35px;
+  }
+
+  .hero-contact-details strong {
+    font-size: 15px;
+  }
+
+  .hero-stats-row {
+    width: 100%;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 8px !important;
+    margin-top: 22px !important;
+    padding-top: 0 !important;
+    border-top: 0;
+  }
+
+  .hero-stat-divider {
+    display: none !important;
+  }
+
+  .hero-stat-card {
+    display: flex;
+    min-height: 72px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 9px 4px !important;
+    background: rgba(255, 255, 255, 0.82);
+    border: 1px solid rgba(0, 26, 41, 0.08);
+    box-shadow: 0 5px 16px rgba(0, 26, 41, 0.04);
+  }
+
+  .hero-stat-card strong {
+    font-size: 14px !important;
+    line-height: 1.15;
+    white-space: nowrap;
+  }
+
+  .hero-stat-card span {
+    margin-top: 4px;
+    font-size: 9px !important;
+    line-height: 1.2;
+  }
+
+  .hero-visual-showcase {
+    min-height: 0;
+    margin-top: 0;
+    padding: 16px 10px 0;
+    overflow: hidden;
+    border: 1px solid rgba(74, 171, 61, 0.16);
+    border-radius: 22px;
+    background: linear-gradient(145deg, #eff9ed 0%, #f8fbff 100%);
+  }
+
+  .hero-solar-team-png {
+    width: 100%;
+    max-width: 350px !important;
+    max-height: none !important;
+    margin: 0 auto;
+  }
+
+  .hero-float-badge {
+    display: none !important;
+  }
+
+  .footer-widget-logo img,
+  .footer-logo img {
+    height: 96px;
+    max-width: 152px;
+  }
+}
+
+@media (max-width: 420px) {
+  .container {
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+
+  .hero-title {
+    font-size: clamp(29px, 8.4vw, 33px) !important;
+  }
+
+  .hero-stat-card strong {
+    font-size: 13px !important;
+  }
+
+  .hero-stat-card span {
+    font-size: 8.5px !important;
+  }
+}
