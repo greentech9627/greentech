@@ -22,9 +22,22 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // 2. Sticky Navbar with elevation
+  // 2. Keep the announcement bar and main navigation together while scrolling
   const header = document.querySelector('.site-header');
+  const topbar = document.querySelector('.topbar');
   const backToTopBtn = document.querySelector('.back-to-top');
+
+  function syncStickyHeaderOffset() {
+    const isVisible = topbar && window.getComputedStyle(topbar).display !== 'none';
+    const height = isVisible ? topbar.getBoundingClientRect().height : 0;
+    document.documentElement.style.setProperty('--topbar-sticky-offset', `${height}px`);
+  }
+
+  syncStickyHeaderOffset();
+  window.addEventListener('resize', syncStickyHeaderOffset);
+  if (topbar && 'ResizeObserver' in window) {
+    new ResizeObserver(syncStickyHeaderOffset).observe(topbar);
+  }
 
   window.addEventListener('scroll', () => {
     if (window.scrollY > 50) {
