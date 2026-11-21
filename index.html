@@ -1336,27 +1336,30 @@
           <h3>Request Free Site Survey &amp; Subsidy Assessment</h3>
           <p>Fill in your details below and claim up to ₹1,08,000 government subsidy.</p>
 
-          <form class="solar-lead-form">
+          <form class="solar-lead-form" action="https://api.web3forms.com/submit" method="POST">
+            <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+            <input type="hidden" name="subject" value="New Site Survey Request - GreenTech Power">
+            <input type="hidden" name="from_name" value="GreenTech Power Solar">
             <div class="form-grid">
               <div class="form-group">
                 <label>Full Name *</label>
-                <input type="text" class="form-control" placeholder="e.g. Ramesh Kumar" required>
+                <input type="text" name="name" class="form-control" placeholder="e.g. Ramesh Kumar" required>
               </div>
               <div class="form-group">
                 <label>Mobile Number (WhatsApp) *</label>
-                <input type="tel" class="form-control" placeholder="+91 98765 43210" required>
+                <input type="tel" name="phone" class="form-control" placeholder="+91 98765 43210" required>
               </div>
               <div class="form-group">
                 <label>Email Address</label>
-                <input type="email" class="form-control" placeholder="yourname@gmail.com">
+                <input type="email" name="email" class="form-control" placeholder="yourname@gmail.com">
               </div>
               <div class="form-group">
                 <label>City / Locality in Uttar Pradesh *</label>
-                <input type="text" class="form-control" placeholder="e.g. Gomti Nagar, Lucknow" required>
+                <input type="text" name="city" class="form-control" placeholder="e.g. Gomti Nagar, Lucknow" required>
               </div>
               <div class="form-group">
                 <label>Average Monthly Electricity Bill *</label>
-                <select class="form-control" required>
+                <select name="monthly_bill" class="form-control" required>
                   <option value="">Select Monthly Bill</option>
                   <option value="1500-3000">₹1,500 - ₹3,000 / month (2kW)</option>
                   <option value="3000-6000" selected>₹3,000 - ₹6,000 / month (3kW - 5kW)</option>
@@ -1366,7 +1369,7 @@
               </div>
               <div class="form-group">
                 <label>Property Type *</label>
-                <select class="form-control" required>
+                <select name="property_type" class="form-control" required>
                   <option value="residential">Residential Home / Villa</option>
                   <option value="apartment">Housing Society / Apartment</option>
                   <option value="commercial">Commercial Building / Office</option>
@@ -1376,7 +1379,7 @@
               </div>
               <div class="form-group full-width">
                 <label>Additional Notes / Address Details</label>
-                <textarea class="form-control" rows="3" placeholder="Tell us about your rooftop area or specific power requirements..."></textarea>
+                <textarea name="notes" class="form-control" rows="3" placeholder="Tell us about your rooftop area or specific power requirements..."></textarea>
               </div>
             </div>
             <button type="submit" class="btn-creative" style="width: 100%;">
@@ -1444,8 +1447,11 @@
           <p>
             Stay updated with Uttar Pradesh solar subsidy policies, net-metering rules, and technology breakthroughs.
           </p>
-          <form class="footer-newsletter-form">
-            <input type="email" class="footer-newsletter-input" placeholder="Enter your email" required>
+          <form class="footer-newsletter-form" action="https://api.web3forms.com/submit" method="POST">
+            <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+            <input type="hidden" name="subject" value="New Newsletter Subscription - GreenTech Power">
+            <input type="hidden" name="from_name" value="GreenTech Power Solar">
+            <input type="email" name="email" class="footer-newsletter-input" placeholder="Enter your email" required>
             <button type="submit" class="btn-creative" style="padding: 12px 18px;">
               <i class="fas fa-arrow-right"></i>
             </button>
@@ -1498,22 +1504,25 @@
         </p>
       </div>
 
-      <form class="solar-lead-form">
+      <form class="solar-lead-form" action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+        <input type="hidden" name="subject" value="New PM Surya Ghar Subsidy Claim - GreenTech Power">
+        <input type="hidden" name="from_name" value="GreenTech Power Solar">
         <div class="form-group" style="margin-bottom: 14px;">
           <label>Full Name *</label>
-          <input type="text" class="form-control" placeholder="Enter your full name" required>
+          <input type="text" name="name" class="form-control" placeholder="Enter your full name" required>
         </div>
         <div class="form-group" style="margin-bottom: 14px;">
           <label>Mobile Number (+91) *</label>
-          <input type="tel" class="form-control" placeholder="+91 98765 43210" required>
+          <input type="tel" name="phone" class="form-control" placeholder="+91 98765 43210" required>
         </div>
         <div class="form-group" style="margin-bottom: 14px;">
           <label>City / Address in Uttar Pradesh *</label>
-          <input type="text" class="form-control" placeholder="e.g. Gomti Nagar, Lucknow" required>
+          <input type="text" name="city" class="form-control" placeholder="e.g. Gomti Nagar, Lucknow" required>
         </div>
         <div class="form-group" style="margin-bottom: 20px;">
           <label>Estimated Monthly Electricity Bill *</label>
-          <select class="form-control" required>
+          <select name="monthly_bill" class="form-control" required>
             <option value="₹2,000 - ₹4,000">₹2,000 - ₹4,000 (Eligible for 2-3 kW)</option>
             <option value="₹4,000 - ₹8,000">₹4,000 - ₹8,000 (Eligible for 3-5 kW)</option>
             <option value="₹8,000 - ₹15,000">₹8,000 - ₹15,000 (Eligible for 5-10 kW)</option>

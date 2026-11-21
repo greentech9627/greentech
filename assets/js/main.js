@@ -176,18 +176,83 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // 6. Form Submission Handlers
+  // 6. Web3Forms Submission Handlers (Fast AJAX, Instant Toast Notification, Zero Redirects)
+  const WEB3FORMS_DEFAULT_KEY = 'YOUR_ACCESS_KEY_HERE';
+
+  async function handleWeb3Submit(form, successTitle, defaultSuccessMsg) {
+    const submitBtn = form.querySelector('button[type="submit"]');
+    const originalBtnHTML = submitBtn ? submitBtn.innerHTML : '';
+
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> <span>Sending...</span>';
+    }
+
+    const formData = new FormData(form);
+    const objectData = Object.fromEntries(formData.entries());
+
+    // Ensure access key
+    if (!objectData.access_key || objectData.access_key === 'YOUR_ACCESS_KEY_HERE') {
+      objectData.access_key = WEB3FORMS_DEFAULT_KEY;
+    }
+
+    const name = objectData.name || form.querySelector('input[type="text"]')?.value || 'Customer';
+    const phone = objectData.phone || form.querySelector('input[type="tel"]')?.value || '';
+
+    try {
+      if (objectData.access_key && objectData.access_key !== 'YOUR_ACCESS_KEY_HERE') {
+        const response = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify(objectData)
+        });
+
+        const result = await response.json();
+
+        if (response.ok && result.success) {
+          closeAllModals();
+          showToast(
+            defaultSuccessMsg || `Thank you, ${name}! Your inquiry has been received. Our team will contact you at ${phone || 'your number'} shortly.`,
+            successTitle || 'Inquiry Submitted!'
+          );
+          form.reset();
+        } else {
+          showToast(result.message || 'Unable to submit right now. Please call our helpline.', 'Notice');
+        }
+      } else {
+        // When key is not yet replaced with live key, show success toast + notification
+        closeAllModals();
+        showToast(
+          defaultSuccessMsg || `Thank you, ${name}! Your inquiry has been recorded. (To receive email alerts, insert your free Web3Forms access key).`,
+          successTitle || 'Request Received!'
+        );
+        form.reset();
+      }
+    } catch (err) {
+      console.error('Web3Forms Error:', err);
+      showToast('Network issue. Please call our helpline directly at +91 94150 78910.', 'Connection Error');
+    } finally {
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = originalBtnHTML;
+      }
+    }
+  }
+
   // A. Lead Forms (index.html)
   document.querySelectorAll('form.solar-lead-form').forEach(form => {
     form.addEventListener('submit', (e) => {
       e.preventDefault();
-      const nameInput = form.querySelector('input[type="text"]');
-      const phoneInput = form.querySelector('input[type="tel"]');
-      const name = nameInput ? nameInput.value : 'Customer';
-      const phone = phoneInput ? phoneInput.value : '';
-      closeAllModals();
-      showToast(`Thank you, ${name}! Our Lucknow solar engineer will contact you at ${phone} to schedule your free 3D site audit.`, 'Free Audit Scheduled!');
-      form.reset();
+      const name = form.querySelector('input[name="name"], input[type="text"]')?.value || 'Customer';
+      const phone = form.querySelector('input[name="phone"], input[type="tel"]')?.value || '';
+      handleWeb3Submit(
+        form,
+        'Free Audit Scheduled!',
+        `Thank you, ${name}! Our Lucknow solar engineer will contact you at ${phone} to schedule your free 3D site audit.`
+      );
     });
   });
 
@@ -195,13 +260,13 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('form.modal-form, #quoteModalForm').forEach(form => {
     form.addEventListener('submit', (e) => {
       e.preventDefault();
-      const nameInput = form.querySelector('input[type="text"]');
-      const phoneInput = form.querySelector('input[type="tel"]');
-      const name = nameInput ? nameInput.value : 'Customer';
-      const phone = phoneInput ? phoneInput.value : '';
-      closeAllModals();
-      showToast(`Thank you, ${name}! Your ₹1,08,000 subsidy eligibility inquiry has been submitted. We will call you at ${phone}.`, 'Subsidy Claim Submitted!');
-      form.reset();
+      const name = form.querySelector('input[name="name"], input[type="text"]')?.value || 'Customer';
+      const phone = form.querySelector('input[name="phone"], input[type="tel"]')?.value || '';
+      handleWeb3Submit(
+        form,
+        'Subsidy Claim Submitted!',
+        `Thank you, ${name}! Your ₹1,08,000 subsidy eligibility inquiry has been submitted. We will call you at ${phone}.`
+      );
     });
   });
 
@@ -209,20 +274,24 @@ document.addEventListener('DOMContentLoaded', () => {
   const contactForm = document.getElementById('contactForm');
   contactForm?.addEventListener('submit', (e) => {
     e.preventDefault();
-    const nameInput = contactForm.querySelector('input[type="text"]');
-    const phoneInput = contactForm.querySelector('input[type="tel"]');
-    const name = nameInput ? nameInput.value : 'Customer';
-    const phone = phoneInput ? phoneInput.value : '';
-    showToast(`Thank you, ${name}! Your message has been received. Our Gomti Nagar, Lucknow team will contact you at ${phone} today.`, 'Inquiry Received!');
-    contactForm.reset();
+    const name = contactForm.querySelector('input[name="name"], input[type="text"]')?.value || 'Customer';
+    const phone = contactForm.querySelector('input[name="phone"], input[type="tel"]')?.value || '';
+    handleWeb3Submit(
+      contactForm,
+      'Inquiry Received!',
+      `Thank you, ${name}! Your message has been received. Our Gomti Nagar, Lucknow team will contact you at ${phone} today.`
+    );
   });
 
   // D. Newsletter Form
   document.querySelectorAll('.footer-newsletter-form').forEach(form => {
     form.addEventListener('submit', (e) => {
       e.preventDefault();
-      showToast('You are now subscribed to PM Surya Ghar & UP Solar Subsidy policy updates.', 'Subscribed Successfully!');
-      form.reset();
+      handleWeb3Submit(
+        form,
+        'Subscribed Successfully!',
+        'You are now subscribed to PM Surya Ghar & UP Solar Subsidy policy updates.'
+      );
     });
   });
 

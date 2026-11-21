@@ -425,18 +425,21 @@
         <h3>Get Free Solar Assessment</h3>
         <p>Enter your details and our Lucknow solar engineer will call you within 15 minutes.</p>
       </div>
-      <form class="modal-form" id="quoteModalForm">
+      <form class="modal-form" id="quoteModalForm" action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+        <input type="hidden" name="subject" value="New Modal Quote Request - GreenTech Power">
+        <input type="hidden" name="from_name" value="GreenTech Power Solar">
         <div class="form-group">
           <label>Full Name *</label>
-          <input type="text" placeholder="e.g. Rahul Sharma" required>
+          <input type="text" name="name" placeholder="e.g. Rahul Sharma" required>
         </div>
         <div class="form-group">
           <label>Mobile Number *</label>
-          <input type="tel" placeholder="+91 98765 43210" pattern="[0-9]{10}" required>
+          <input type="tel" name="phone" placeholder="+91 98765 43210" pattern="[0-9]{10}" required>
         </div>
         <div class="form-group">
           <label>Your City in Uttar Pradesh *</label>
-          <select required>
+          <select name="city" required>
             <option value="Lucknow" selected>Lucknow</option>
             <option value="Kanpur">Kanpur</option>
             <option value="Ayodhya">Ayodhya</option>
@@ -447,7 +450,7 @@
         </div>
         <div class="form-group">
           <label>Average Monthly Electricity Bill *</label>
-          <select required>
+          <select name="monthly_bill" required>
             <option value="Under ₹2,000">Under ₹2,000 (1 - 2 kW)</option>
             <option value="₹2,000 - ₹5,000" selected>₹2,000 - ₹5,000 (3 kW System)</option>
             <option value="₹5,000 - ₹10,000">₹5,000 - ₹10,000 (5 kW System)</option>
