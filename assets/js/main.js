@@ -177,7 +177,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // 6. Web3Forms Submission Handlers (Fast AJAX, Instant Toast Notification, Zero Redirects)
-  const WEB3FORMS_DEFAULT_KEY = 'YOUR_ACCESS_KEY_HERE';
+  const WEB3FORMS_DEFAULT_KEY = '55157f66-ed0a-40ed-bd82-46aab3149e4f';
 
   async function handleWeb3Submit(form, successTitle, defaultSuccessMsg) {
     const submitBtn = form.querySelector('button[type="submit"]');
